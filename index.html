@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DeepOrca 生态 — 原型 · 设计 · 编码 · 测试</title>
+<meta name="description" content="DeepOrca 完整生态：DeepOrca 桌面创作 Studio、MoonViz 引擎、deepDesign Studio、ddpView 与 deepAutoTest —— 一套以「唯一事实源」哲学贯穿的 AI 原生创作工具族。" />
+<link rel="icon" type="image/png" href="assets/orca-icon.png" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ======================= NAV ======================= -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <img src="assets/orca-icon.png" alt="DeepOrca" class="brand-logo" />
+      <span class="brand-name">DeepOrca <em>生态</em></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#overview">生态总览</a>
+      <a href="#deeporca">DeepOrca</a>
+      <a href="#moonviz">MoonViz</a>
+      <a href="#deepdesign">deepDesign</a>
+      <a href="#ddpview">ddpView</a>
+      <a href="#deepautotest">deepAutoTest</a>
+      <a href="#philosophy">设计哲学</a>
+      <a href="#dataflow">数据流</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-sm" href="https://github.com/d2rabbit/deepOrca" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        GitHub
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="container hero-inner">
+    <p class="hero-eyebrow reveal"><span class="pulse-dot"></span>deepStudio 工作区 · 完整生态 · 五个开源项目</p>
+    <h1 class="hero-title reveal">Deep<span class="grad">Orca</span> 生态</h1>
+    <p class="hero-sub reveal">原型 · 设计 · 编码 · 测试 —— 一套以「唯一事实源」哲学贯穿的<br class="br-desktop" />AI 原生创作工具族</p>
+    <p class="hero-desc reveal">
+      一份 <code>.mbt.md</code> 是设计真相，一条追加式事件日志是测试真相，一个桌面客户端承载
+      从原型验证、设计稿生成到代码实现的全流程。五个项目各司其职，按需组合。
+    </p>
+    <div class="hero-cta reveal">
+      <a class="btn btn-primary" href="#overview">浏览生态总览</a>
+      <a class="btn btn-outline" href="https://github.com/d2rabbit/deepOrca" target="_blank" rel="noopener">DeepOrca 源码 ↗</a>
+    </div>
+    <dl class="hero-stats reveal">
+      <div><dt>5</dt><dd>开源项目</dd></div>
+      <div><dt>47</dt><dd>Agent 工具 API</dd></div>
+      <div><dt>174</dt><dd>引擎测试 · MoonViz</dd></div>
+      <div><dt>99</dt><dd>验收测试 · deepAutoTest</dd></div>
+      <div><dt>v0.1.34</dt><dd>DeepOrca 当前版本</dd></div>
+    </dl>
+  </div>
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 74" preserveAspectRatio="none"><path d="M0,40 C240,80 480,0 720,30 C960,60 1200,10 1440,44 L1440,74 L0,74 Z" fill="var(--bg)"/></svg>
+  </div>
+</section>
+
+<!-- ======================= 01 生态总览 ======================= -->
+<section class="section" id="overview">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-no">01</span>
+      <h2>生态总览</h2>
+      <p>deepStudio 是 deepDesign 产品线的统一仓库群。五个项目覆盖<strong>创作、设计、查看、测试</strong>四个环节，共享同一套设计哲学，工程上各自独立。</p>
+    </header>
+
+    <div class="eco-grid">
+      <a class="eco-card reveal" href="#deeporca" data-accent="orca">
+        <div class="eco-icon">🐋</div>
+        <div class="eco-meta"><span class="tag tag-hot">旗舰产品</span><span class="tag">Electron · Node/TS</span></div>
+        <h3>DeepOrca</h3>
+        <p>AI 驱动的创作 Studio 桌面客户端：原型设计、UI 设计稿、智能编码三大能力独立可用、按需组合。为 deepseek-v4 优化。</p>
+        <span class="eco-link">d2rabbit/deepOrca →</span>
+      </a>
+
+      <a class="eco-card reveal" href="#moonviz" data-accent="moon">
+        <div class="eco-icon">🌙</div>
+        <div class="eco-meta"><span class="tag tag-engine">基础引擎</span><span class="tag">100% MoonBit</span></div>
+        <h3>MoonViz</h3>
+        <p>Agent 驱动的原型设计基础引擎。<code>.mbt.md</code> 唯一事实源，47 个 Agent 工具、双 Gate 校验、CLI/MCP/SDK/WASM 六条集成路线。</p>
+        <span class="eco-link">asdshuaishuai/moonviz →</span>
+      </a>
+
+      <a class="eco-card reveal" href="#deepdesign" data-accent="design">
+        <div class="eco-icon">🎨</div>
+        <div class="eco-meta"><span class="tag">视觉编辑器</span><span class="tag">Tauri 2 · Rust</span></div>
+        <h3>deepDesign Studio</h3>
+        <p>人类编辑路线的桌面客户端：多画板画布、decl 源码视图、进程内 Agent 循环，DDP 加密导出。与 Agent 共写同一份事实源。</p>
+        <span class="eco-link">asdshuaishuai/moonviz-demo-tauri →</span>
+      </a>
+
+      <a class="eco-card reveal" href="#ddpview" data-accent="view">
+        <div class="eco-icon">🖥️</div>
+        <div class="eco-meta"><span class="tag">只读查看器</span><span class="tag">SwiftUI · AppKit</span></div>
+        <h3>ddpView</h3>
+        <p>DDP 视觉文档的原生 macOS 只读查看器：解密 → 引擎渲染 → 交互跳转。全程只读，不写回任何文件。</p>
+        <span class="eco-link">asdshuaishuai/ddpView-mac →</span>
+      </a>
+
+      <a class="eco-card reveal" href="#deepautotest" data-accent="test">
+        <div class="eco-icon">🧪</div>
+        <div class="eco-meta"><span class="tag tag-wip">基座已落地</span><span class="tag">系统 WebView · Node</span></div>
+        <h3>deepAutoTest</h3>
+        <p>源码驱动的 API 自动化测试工作台：把被测源码变成可执行、可追溯、可复现的测试资产。与 deepStudio 哲学同源、工程独立。</p>
+        <span class="eco-link">设计文档 11 篇 · kernel 99 项验收测试 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 02 DeepOrca ======================= -->
+<section class="section section-alt" id="deeporca">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-no">02</span>
+      <h2>DeepOrca <small>· 旗舰桌面 Studio</small></h2>
+      <p><strong>原型 · 设计 · 编码 —— AI 创作 Studio。</strong>三大能力独立可用，从任意一个切入即可，也可以组合流转：从原型验证到设计稿再到代码实现，都在一个桌面客户端完成。专为 <code>deepseek-v4</code> 模型优化。</p>
+    </header>
+
+    <div class="pill-row reveal">
+      <span class="pill">🎯 原型设计</span>
+      <span class="pill">🎨 UI 设计稿</span>
+      <span class="pill">💻 智能编码</span>
+      <span class="pill">Electron 桌面端</span>
+      <span class="pill">MPL-2.0 开源</span>
+    </div>
+
+    <div class="ability-grid">
+      <article class="ability-card reveal">
+        <div class="ability-icon">🎯</div>
+        <h3>原型设计</h3>
+        <p>用自然语言描述需求，AI 生成可交互原型——表单、看板、多页面导航，双向交互验证用户流程。</p>
+        <div class="chips"><span>A2UI 协议</span><span>OpenUI Lang</span><span>7 个模板</span></div>
+      </article>
+      <article class="ability-card reveal">
+        <div class="ability-icon">🎨</div>
+        <h3>UI 设计稿</h3>
+        <p>生成自包含 HTML 设计稿，可脱离宿主独立交付。</p>
+        <div class="chips"><span>DeepDesign <code>.dd</code> 格式</span><span>3 种设计系统</span><span>14 种 UI 风格</span><span>Tailwind 内置</span></div>
+      </article>
+      <article class="ability-card reveal">
+        <div class="ability-icon">💻</div>
+        <h3>智能编码</h3>
+        <p>DeepSeek 驱动的会话式编码：内置工具开箱即用，MCP 协议无限扩展。</p>
+        <div class="chips"><span>8 个内置工具</span><span>MCP 协议</span><span>CodeMirror 6</span><span>Git 集成</span></div>
+      </article>
+    </div>
+
+    <!-- 截图画廊 -->
+    <div class="shot-frame reveal">
+      <div class="shot-tabs" role="tablist" id="shotTabs">
+        <button class="shot-tab is-active" role="tab" data-shot="0">欢迎页</button>
+        <button class="shot-tab" role="tab" data-shot="1">对话编排</button>
+        <button class="shot-tab" role="tab" data-shot="2">命令面板</button>
+        <button class="shot-tab" role="tab" data-shot="3">插件中心</button>
+      </div>
+      <div class="shot-stage">
+        <figure class="shot is-active"><img src="assets/app-welcome.png" width="1180" height="820" alt="DeepOrca 欢迎页：会话中心与快速开始" loading="lazy" /><figcaption>会话中心 · 快速开始 · 计划模式</figcaption></figure>
+        <figure class="shot"><img src="assets/app-composer.png" width="1180" height="820" alt="DeepOrca 对话编排：自然语言驱动构建" loading="lazy" /><figcaption>自然语言驱动 · 构建 / 修复 / 解释</figcaption></figure>
+        <figure class="shot"><img src="assets/app-palette.png" width="1180" height="820" alt="DeepOrca 命令面板" loading="lazy" /><figcaption>⌘K 命令面板 · 全局操作入口</figcaption></figure>
+        <figure class="shot"><img src="assets/app-plugins.png" width="1180" height="820" alt="DeepOrca 插件中心" loading="lazy" /><figcaption>插件中心 · MCP 服务器 / 技能 / 内置插件</figcaption></figure>
+      </div>
+    </div>
+
+    <!-- monorepo 组成 -->
+    <div class="split">
+      <div class="reveal">
+        <h3 class="h3">四个 npm workspace</h3>
+        <ul class="pkg-list">
+          <li><code>@deeporca/core</code><span>核心引擎：LLM 会话循环、8 个内置工具、Skills/MCP、Actions、会话持久化</span></li>
+          <li><code>@deeporca/desktop</code><span>Electron 客户端：main/preload/renderer、CodeMirror 6、多面板、6 套主题 × 亮暗双外观</span></li>
+          <li><code>@deeporca/embedding</code><span>本地 IBM Granite 嵌入运行时（97M，384 维，200+ 语言），构建期 vendor 零下载</span></li>
+          <li><code>@deeporca/memory</code><span>进程内 L0–L3 记忆流水线与 sqlite-vec 向量检索</span></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <h3 class="h3">桌面亮点</h3>
+        <ul class="tick-list">
+          <li><strong>现代化画布布局</strong> — 浮动功能岛屿 + 胶囊任务页签，告别 IDE 窗格拼接感</li>
+          <li><strong>一键工作区索引</strong> — CodeGraph 符号级 · OpenWiki 文档级 · arch-scan 架构级，知识与对话连通</li>
+          <li><strong>代码审查 + 风险图谱</strong> — 按需审查任意工作区，发现映射 CRG 结构风险图双向定位</li>
+          <li><strong>Actions 能力层</strong> — defineAction 一次定义：LLM 工具、桌面 IPC/UI、组合工作流多处调用</li>
+          <li><strong>语义路由</strong> — 技能/MCP 工具 top-K 召回，SkillWeaver 复杂查询 DAG 组合，全程 fail-open</li>
+          <li><strong>任务中心</strong> — 四域任务树，Git-Graph 式历史，会话轨迹可 fork / 切换分支</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 起源 -->
+    <aside class="origin reveal">
+      <div class="origin-shot"><img src="assets/intro2.png" width="1482" height="796" alt="上游 Deep Code 终端界面" loading="lazy" /></div>
+      <div class="origin-text">
+        <h3 class="h3">血统：从 Deep Code 到 DeepOrca</h3>
+        <p>DeepOrca 起源于 <strong>Deep Code</strong>（<code>@vegamo/deepcode</code>，MIT）的 fork，保留其优秀的核心引擎架构，并在此基础上增加桌面 GUI、Actions、本地记忆与嵌入、GitMCP、CodeMirror 6 编辑器等能力。LLM 会话稳健性层设计借鉴 <strong>DeepSeek Harness</strong>——纯设计吸收，不含其代码。上游版权声明在 NOTICE 中完整保留。</p>
+        <p class="muted">「cache-first 前缀缓存优化 · 溢出自动压缩重试 · 流 idle 看门狗」——为 DeepSeek 模型深度调优。</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ======================= 03 MoonViz ======================= -->
+<section class="section" id="moonviz">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-no">03</span>
+      <h2>MoonViz <small>· 原型设计基础引擎</small></h2>
+      <p>AI 时代的 Agent 驱动原型设计基础引擎。<strong>100% MoonBit，零手写 JS/Node。</strong>
+      <code>.mbt.md</code> 是唯一事实源，MoonBit 是统一计算内核——Agent 通过结构化文本协议发现组件、放置元素、检查质量、修复违规。</p>
+    </header>
+
+    <div class="cap-grid">
+      <div class="cap reveal"><b>47</b><span>Agent 工具 API</span><small>发现/放置/lint/修复/导出全走 JSON 文本协议</small></div>
+      <div class="cap reveal"><b>8×22</b><span>组件 × 变体</span><small>button / card / app_bar / heading…</small></div>
+      <div class="cap reveal"><b>8</b><span>页面模板</span><small>login / dashboard / settings… 一句话→整页面</small></div>
+      <div class="cap reveal"><b>双 Gate</b><span>合并门槛</span><small>HumanGate 软提示记视觉债 · AgentGate 零容忍</small></div>
+      <div class="cap reveal"><b>P0–P4</b><span>不崩谓词</span><small>失败 ≠ 崩溃，违规可修复可清偿</small></div>
+      <div class="cap reveal"><b>174</b><span>项引擎测试</span><small>moon test 全量挡板</small></div>
+    </div>
+
+    <div class="split">
+      <div class="reveal">
+        <h3 class="h3">引擎能力全景</h3>
+        <ul class="tick-list compact">
+          <li><strong>交互原型系统</strong> — Trigger / Action / Transition / 导航栈，原型不是静态图</li>
+          <li><strong>设计智能</strong> — 页面类型推断、缺失元素检测、改进建议、A–D 质量评分</li>
+          <li><strong>AI 设计批评</strong> — 按 8 项设计原则（层次/亲密性/对齐/一致性…）整体评审</li>
+          <li><strong>血缘追踪</strong> — 改一个令牌，立刻知道哪些节点受影响 + 设计系统审计</li>
+          <li><strong>原型测试</strong> — 断言式验证导航/输入/渲染：「看起来对」更要「测得过」</li>
+          <li><strong>布局推理</strong> — 「居中对齐」「间距 16」等中英文 12 种意图直接执行</li>
+          <li><strong>多 Agent 协作</strong> — 操作变换 OT、冲突检测、三方合并</li>
+          <li><strong>设计版本控制</strong> — 时间旅行 / 分支 / 变更回放 / undo-redo</li>
+          <li><strong>反向提取</strong> — 从现有设计反推设计系统，提取→再利用闭环</li>
+          <li><strong>主题 · 插槽 · 动画 · 标注 · 响应式 · 性能基准</strong> — 全部引擎内置</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <h3 class="h3">三个纯 MoonBit 渲染后端</h3>
+        <div class="render-row">
+          <div class="render-card"><b>SVG</b><span>矢量主路径：字体栈 + elevation 阴影 + 渐变</span></div>
+          <div class="render-card"><b>PNG</b><span>自研软光栅：2x 超采样 + 纯 MoonBit DEFLATE</span></div>
+          <div class="render-card"><b>终端</b><span>ANSI 真彩画布：Camera 平移缩放 + pick 拖拽</span></div>
+        </div>
+        <p class="muted">任意宿主后端（Canvas / Skia / OpenGL）经后端无关的 <code>RenderPlan</code> 显示列表接入。</p>
+
+        <h3 class="h3" style="margin-top:28px">六条集成路线</h3>
+        <table class="mini-table">
+          <tr><td>CLI 行协议</td><td>一个进程 = 一个有状态会话</td></tr>
+          <tr><td>MCP</td><td><code>npx -y moonviz-mcp</code> 接入任意 MCP 客户端</td></tr>
+          <tr><td>Node SDK</td><td><code>moonviz-engine-sdk</code> 会话 / 构建器 / DDP 桥</td></tr>
+          <tr><td>WASM SDK</td><td><code>moonviz-engine-wasm</code> 进程内渲染，零工具链</td></tr>
+          <tr><td>SKILL</td><td>SKILL.md 操作规范，任意 coding agent 挂载</td></tr>
+          <tr><td>DDP 容器</td><td>Rust ddp_codec：加密分发 / 只读查看</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <p class="section-footnote reveal">🛰 官网与完整文档：<a href="https://asdshuaishuai.github.io/moonviz/" target="_blank" rel="noopener">asdshuaishuai.github.io/moonviz</a> · 自包含二进制 CLI 1.26MB / MCP 1.10MB，仅链接系统 libc。</p>
+  </div>
+</section>
+
+<!-- ======================= 04 deepDesign ======================= -->
+<section class="section section-alt" id="deepdesign">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-no">04</span>
+      <h2>deepDesign Studio <small>· 人类编辑路线</small></h2>
+      <p>AI 原生原型设计工具的桌面客户端（Tauri 2）。基于 MoonViz 引擎：<strong>人类画布操作与 Agent 修改都经引擎校验（HumanGate / AgentGate）后回写同一份 <code>.mbt.md</code></strong>。</p>
+    </header>
+
+    <div class="arch-flow reveal">
+      <div class="arch-node"><b>前端</b><span>纯静态 · 多画板画布 / 组件库 / decl 源码视图 / 演示模式</span></div>
+      <div class="arch-arrow">invoke</div>
+      <div class="arch-node"><b>Rust 后端</b><span>exec_cli 引擎管道 · 进程内 Agent 循环 · DDP 读写</span></div>
+      <div class="arch-arrow">stdio</div>
+      <div class="arch-node"><b>MoonViz 引擎</b><span>独立二进制随包分发 · JSON 行协议 · 用户无需工具链</span></div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature reveal"><span>🖼️</span><b>多画板画布</b><p>画布拖拽的中间态可以带「视觉债」保存，角标提示、后续清偿——HumanGate 软门槛。</p></div>
+      <div class="feature reveal"><span>🤖</span><b>进程内 Agent</b><p>Rust 实现 Agent 循环，无 JS 运行时、无子进程桥。LLM 走任意 OpenAI 兼容端点。</p></div>
+      <div class="feature reveal"><span>🏢</span><b>11 家服务商预设</b><p>DeepSeek / GLM 双平台 / Kimi 双线 / MiniMax 国内外 / StepFun，思考等级按各家方言模型感知降级。</p></div>
+      <div class="feature reveal"><span>🔐</span><b>DDP 加密导出</b><p>设计文档加密分发，与 ddpView 查看器、Studio 打开回路一致。</p></div>
+      <div class="feature reveal"><span>📦</span><b>跨平台打包</b><p>macOS <code>.app</code> / <code>.dmg</code> 内嵌引擎二进制；Windows NSIS 由 GitHub Actions 构建。</p></div>
+      <div class="feature reveal"><span>🧪</span><b>端到端测试</b><p>mock-LLM × 真实引擎二进制的 cargo 端到端循环 + 前端状态机冒烟。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 05 ddpView ======================= -->
+<section class="section" id="ddpview">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-no">05</span>
+      <h2>ddpView <small>· macOS 只读查看器</small></h2>
+      <p>deepDesign DDP 视觉文档的原生 macOS 只读查看器——独立 Swift/SwiftUI 项目，与 Studio 壳和 Web 版完全解耦。</p>
+    </header>
+
+    <div class="pipe reveal">
+      <div class="pipe-step"><span class="pipe-no">1</span><b>.ddp 文件</b><small>DDP1 密码加密（Argon2id + XChaCha20-Poly1305）<br />DDP2 免密（zstd + CRC32）</small></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step"><span class="pipe-no">2</span><b>ddp_codec 解密</b><small>Rust 子进程还原 <code>.mbt.md</code> 明文</small></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step"><span class="pipe-no">3</span><b>引擎渲染</b><small>MoonViz CLI 重新解析 / 求解 / 渲染 SVG</small></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step"><span class="pipe-no">4</span><b>SwiftUI 舞台</b><small>WKWebView 透明渲染 + 原生热区<br />点击绿色区域沿交互流跳转</small></div>
+    </div>
+
+    <div class="feature-grid cols-4">
+      <div class="feature reveal"><span>🔒</span><b>只读承诺</b><p>全程只调「解密 + 渲染」，不提供任何编辑/保存能力，不写回 DDP/MBT。</p></div>
+      <div class="feature reveal"><span>🔑</span><b>免密直开</b><p>DDP2 直接打开；DDP1 弹密码浮层，密码错误可重试、不落盘。</p></div>
+      <div class="feature reveal"><span>🧭</span><b>交互跳转</b><p>对应 Studio 的 <code>tap:</code> 流：点击热区跳画板，面包屑 / ← 键返回。</p></div>
+      <div class="feature reveal"><span>🚀</span><b>一键成 app</b><p><code>make-app.sh</code> 打包出带 Dock 图标、Launchpad 与文件关联的 <code>.app</code>。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 06 deepAutoTest ======================= -->
+<section class="section section-alt" id="deepautotest">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-no">06</span>
+      <h2>deepAutoTest <small>· 测试线（基座已落地）</small></h2>
+      <p>源码驱动的 API 自动化测试工作台。一句话：<strong>把被测服务的源码变成可执行、可追溯、可复现的测试资产。</strong>文档会过期，源码不会——从源码发现 API、提炼测试数据设计原则，由内嵌 fx Agent 合成用例。</p>
+    </header>
+
+    <div class="pill-row reveal">
+      <span class="pill pill-on">✅ headless kernel 已落地</span>
+      <span class="pill pill-on">✅ 执行层已闭环</span>
+      <span class="pill">⏳ 适配器 / runner UI / Agent / UI 壳 未开始</span>
+    </div>
+
+    <div class="cap-grid four">
+      <div class="cap reveal"><b>99</b><span>项验收测试</span><small>判定穷举 / 投影重建 / mock 服务集成（Vitest）</small></div>
+      <div class="cap reveal"><b>reduce</b><span>判定是纯函数</span><small>verdict = reduce(events, policy)，改规则不改数据</small></div>
+      <div class="cap reveal"><b>append</b><span>事件日志为真源</span><small>chainHash 防篡改，结果表只是投影、可重建</small></div>
+      <div class="cap reveal"><b>re-judge</b><span>历史可重判</span><small>判定逻辑演进后，对历史运行重新判定无需重跑</small></div>
+    </div>
+
+    <div class="split">
+      <div class="reveal">
+        <h3 class="h3">关键设计</h3>
+        <ul class="tick-list compact">
+          <li><strong>测试用例是步骤树</strong> — 前置步骤、传值（extract）、db_check 副作用侧证防假通过、参数化、五级断言严重度</li>
+          <li><strong>AI 不越权</strong> — Agent 产物一律 <code>proposed</code>，人工裁决才 <code>adopted</code>，diff 留痕</li>
+          <li><strong>写时脱敏</strong> — 手机号/邮箱/证件/凭据字段入库即掩码，库内明文零命中</li>
+          <li><strong>SSRF 分档</strong> — strict 拒内网 / permissive 允许（测试就是要打内网），DNS 逐 IP 校验、重定向每跳再验</li>
+          <li><strong>一律拒绝编译而非跳过</strong> — 非 adopted 用例、变量引用晚于定义、目标越域……直接失败</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <h3 class="h3">为什么是「系统 WebView + 内置 Node」</h3>
+        <p class="muted">AST 分析（ts-morph）、HTTP 执行（undici）、数据库采样、Agent 生态全在 Node——必须内置 Node；
+        但 Electron 捆绑 Chromium 约 124 MB 过重，Tauri 后端是 Rust 会丢 Node 生态。结论：
+        <strong>把系统 WebView 直接绑进 Node 进程，体积约 55–70 MB，减半</strong>，且页面天然无 Node 权限——隔离是结构性的。</p>
+        <p class="muted">实测发现 <code>show()</code> 会阻塞 Node 事件循环，因此<strong>所有 IO 必须走 Worker</strong>，跨线程用 SharedArrayBuffer + Atomics 同步——方案已本机实测跑通（页面 13 次真实 HTTP 全成功）。</p>
+        <div class="chips"><span>基座零运行时依赖</span><span>执行层仅依赖 undici</span><span>node:sqlite 零原生依赖</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 07 设计哲学 ======================= -->
+<section class="section" id="philosophy">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-no">07</span>
+      <h2>设计哲学 <small>· 跨项目共享</small></h2>
+      <p class="quote">「真相只有一个，其余都是投影；改变真相必须过门；任何状态都必须能被重新解释。」</p>
+      <p>deepAutoTest 不依赖 deepStudio 的任何代码——两者只共享一套已被验证的设计哲学：</p>
+    </header>
+
+    <div class="table-wrap reveal">
+      <table class="phil-table">
+        <thead>
+          <tr><th>哲学</th><th>deepStudio 的落地</th><th>deepAutoTest 的落地</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>唯一事实源</b></td><td>一份 <code>.mbt.md</code> 是项目真相</td><td>被测源码是资产源头；追加式执行事件日志是结果真相</td></tr>
+          <tr><td><b>派生只做缓存</b></td><td>SVG / RenderPlan / 内存 Project 不可持久化</td><td>结果表 / 通过率 / 趋势图都是事件日志的投影，可重建</td></tr>
+          <tr><td><b>双向提交边界相同</b></td><td>人类画布与 Agent 操作都经引擎 Gate 写回同一份 MBT</td><td>人类编辑与 Agent 合成产出同一用例模型、写同一事件日志</td></tr>
+          <tr><td><b>AI 不越权</b></td><td>Agent 只能调 <code>moonviz_op</code>，AgentGate 更严格</td><td>Agent 产物一律 <code>proposed</code>，人工裁决才 <code>adopted</code></td></tr>
+          <tr><td><b>一切可回放</b></td><td>MBT 重新解析后画布才更新，操作可重放</td><td>日志可重放、判定可重算、结果可对账</td></tr>
+          <tr><td><b>只读查看器独立</b></td><td>ddpView 只解密渲染，不调 Agent、不写文件</td><td>归档浏览器只读回放历史运行，不触发执行</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 08 数据流 ======================= -->
+<section class="section section-alt" id="dataflow">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-no">08</span>
+      <h2>数据流 <small>· 谁生产什么</small></h2>
+      <p>三条产品线在同一套事实源纪律下衔接。</p>
+    </header>
+
+    <div class="lane reveal">
+      <div class="lane-title"><span class="lane-dot dot-design"></span>创作线 · DeepOrca</div>
+      <div class="lane-flow">
+        <div class="flow-node"><b>自然语言需求</b></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent"><b>DeepOrca Studio</b><small>原型 A2UI · 设计稿 .dd · 会话编码</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node"><b>可交付代码与设计稿</b></div>
+      </div>
+    </div>
+
+    <div class="lane reveal">
+      <div class="lane-title"><span class="lane-dot dot-mviz"></span>设计线 · MoonViz / deepDesign / ddpView</div>
+      <div class="lane-flow">
+        <div class="flow-node"><b>MoonViz 引擎</b><small>SVG / PNG / 终端 · CLI/MCP/SDK/WASM</small></div>
+        <span class="flow-arrow">⇄</span>
+        <div class="flow-node source"><b>.mbt.md 唯一事实源</b><small>人类编辑与 Agent 修改都过双 Gate</small></div>
+        <span class="flow-arrow">⇄</span>
+        <div class="flow-node"><b>deepDesign Studio</b><small>画布 · decl 源码 · 演示</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node"><b>导出 DDP</b></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node"><b>ddpView 只读查看</b><small>解密 → 渲染 → 交互跳转</small></div>
+      </div>
+    </div>
+
+    <div class="lane reveal">
+      <div class="lane-title"><span class="lane-dot dot-test"></span>测试线 · deepAutoTest</div>
+      <div class="lane-flow">
+        <div class="flow-node"><b>被测源码 + 测试库</b></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent"><b>deepAutoTest</b><small>fx Agent 合成用例 · 人工确认门</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node source"><b>追加式事件日志</b><small>真相 · chainHash 防篡改</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node"><b>判定 reduce</b><small>纯函数 · 可重判</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node"><b>结果呈现 / 归档回放</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/orca-icon.png" alt="" width="44" height="44" />
+        <div>
+          <b>DeepOrca 生态</b>
+          <p>原型 · 设计 · 编码 · 测试 —— AI 创作全链路</p>
+        </div>
+      </div>
+      <nav class="footer-links">
+        <div>
+          <h4>项目仓库</h4>
+          <a href="https://github.com/d2rabbit/deepOrca" target="_blank" rel="noopener">d2rabbit/deepOrca</a>
+          <a href="https://github.com/asdshuaishuai/moonviz" target="_blank" rel="noopener">asdshuaishuai/moonviz</a>
+          <a href="https://github.com/asdshuaishuai/moonviz-demo-tauri" target="_blank" rel="noopener">asdshuaishuai/moonviz-demo-tauri</a>
+          <a href="https://github.com/asdshuaishuai/ddpView-mac" target="_blank" rel="noopener">asdshuaishuai/ddpView-mac</a>
+        </div>
+        <div>
+          <h4>文档</h4>
+          <a href="https://asdshuaishuai.github.io/moonviz/" target="_blank" rel="noopener">MoonViz 官网</a>
+          <a href="https://github.com/d2rabbit/deepOrca/tree/main/docs" target="_blank" rel="noopener">DeepOrca Docs</a>
+          <a href="https://github.com/d2rabbit/deepOrca/blob/main/CHANGELOG.md" target="_blank" rel="noopener">更新日志</a>
+          <a href="#philosophy">设计哲学</a>
+        </div>
+        <div>
+          <h4>协议</h4>
+          <p class="muted">DeepOrca · MPL-2.0<br />MoonViz · MIT<br />deepDesign / ddpView · 详见各仓库</p>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>deepStudio 工作区 · DeepOrca 生态官网</span>
+      <span class="muted">Built with plain HTML/CSS/JS · © 2026 DeepOrca contributors</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
