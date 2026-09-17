@@ -334,6 +334,7 @@ code {
 .shot.is-active { display: block; animation: fadeIn 0.45s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: scale(1.012); } to { opacity: 1; transform: none; } }
 .shot img { width: 100%; height: auto; }
+.shot.portrait img { width: auto; max-width: min(100%, 620px); max-height: 78vh; margin: 0 auto; }
 .shot figcaption {
   text-align: center;
   font-size: 12.5px;
@@ -524,6 +525,7 @@ code {
 .dot-design { background: #6ee7d8; box-shadow: 0 0 12px #6ee7d8; }
 .dot-mviz { background: #5b8def; box-shadow: 0 0 12px #5b8def; }
 .dot-test { background: #ffd28a; box-shadow: 0 0 12px #ffd28a; }
+.dot-native { background: #b18cff; box-shadow: 0 0 12px #b18cff; }
 .lane-flow {
   display: flex; align-items: stretch; gap: 10px;
   flex-wrap: wrap;

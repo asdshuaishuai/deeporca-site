@@ -24,6 +24,7 @@
       <a href="#deepdesign">deepDesign</a>
       <a href="#ddpview">ddpView</a>
       <a href="#deepautotest">deepAutoTest</a>
+      <a href="#htmlnative">html-native</a>
       <a href="#philosophy">设计哲学</a>
       <a href="#dataflow">数据流</a>
     </nav>
@@ -48,19 +49,19 @@
     <div class="hero-grid"></div>
   </div>
   <div class="container hero-inner">
-    <p class="hero-eyebrow reveal"><span class="pulse-dot"></span>deepStudio 工作区 · 完整生态 · 五个开源项目</p>
+    <p class="hero-eyebrow reveal"><span class="pulse-dot"></span>deepStudio 工作区 · 完整生态 · 六个开源项目</p>
     <h1 class="hero-title reveal">Deep<span class="grad">Orca</span> 生态</h1>
     <p class="hero-sub reveal">原型 · 设计 · 编码 · 测试 —— 一套以「唯一事实源」哲学贯穿的<br class="br-desktop" />AI 原生创作工具族</p>
     <p class="hero-desc reveal">
-      一份 <code>.mbt.md</code> 是设计真相，一条追加式事件日志是测试真相，一个桌面客户端承载
-      从原型验证、设计稿生成到代码实现的全流程。五个项目各司其职，按需组合。
+      一份 <code>.mbt.md</code> 是设计真相，一条追加式事件日志是测试真相，一份 hn 编码是原生窗口，一个桌面客户端承载
+      从原型验证、设计稿生成到代码实现的全流程。六个项目各司其职，按需组合。
     </p>
     <div class="hero-cta reveal">
       <a class="btn btn-primary" href="#overview">浏览生态总览</a>
       <a class="btn btn-outline" href="https://github.com/d2rabbit/deepOrca" target="_blank" rel="noopener">DeepOrca 源码 ↗</a>
     </div>
     <dl class="hero-stats reveal">
-      <div><dt>5</dt><dd>开源项目</dd></div>
+      <div><dt>6</dt><dd>开源项目</dd></div>
       <div><dt>47</dt><dd>Agent 工具 API</dd></div>
       <div><dt>174</dt><dd>引擎测试 · MoonViz</dd></div>
       <div><dt>99</dt><dd>验收测试 · deepAutoTest</dd></div>
@@ -78,7 +79,7 @@
     <header class="section-head reveal">
       <span class="section-no">01</span>
       <h2>生态总览</h2>
-      <p>deepStudio 是 deepDesign 产品线的统一仓库群。五个项目覆盖<strong>创作、设计、查看、测试</strong>四个环节，共享同一套设计哲学，工程上各自独立。</p>
+      <p>deepStudio 是 deepDesign 产品线的统一仓库群。六个项目覆盖<strong>创作、设计、查看、测试、交付</strong>五个环节，共享同一套设计哲学，工程上各自独立。</p>
     </header>
 
     <div class="eco-grid">
@@ -120,6 +121,14 @@
         <h3>deepAutoTest</h3>
         <p>源码驱动的 API 自动化测试工作台：把被测源码变成可执行、可追溯、可复现的测试资产。与 deepStudio 哲学同源、工程独立。</p>
         <span class="eco-link">设计文档 11 篇 · kernel 99 项验收测试 →</span>
+      </a>
+
+      <a class="eco-card reveal" href="#htmlnative" data-accent="native">
+        <div class="eco-icon">📱</div>
+        <div class="eco-meta"><span class="tag tag-engine">原生 UI 框架</span><span class="tag">C99 · Swift</span></div>
+        <h3>html-native</h3>
+        <p>与 RN / Flutter 同级的原生 UI 框架——UI 描述语言就是 HTML。自研 C99 引擎把 hn 编码渲染成系统原生窗口，无 WebView、无构建、无 JavaScript 必需。</p>
+        <span class="eco-link">asdshuaishuai/html-native →</span>
       </a>
     </div>
   </div>
@@ -376,11 +385,65 @@
   </div>
 </section>
 
-<!-- ======================= 07 设计哲学 ======================= -->
-<section class="section" id="philosophy">
+<!-- ======================= 07 html-native ======================= -->
+<section class="section" id="htmlnative">
   <div class="container">
     <header class="section-head reveal">
       <span class="section-no">07</span>
+      <h2>html-native <small>· 原生 UI 框架（应用载体）</small></h2>
+      <p>与 RN / Flutter 同级的原生 UI 框架——<strong>UI 描述语言就是 HTML</strong>。形态是一个系统级 PWA / 小程序引擎：
+      自研 C99 引擎把 hn 编码直接渲染成系统原生窗口（无 WebView），应用是易变对象：秒开、热更新、持久化、销毁。
+      <strong>人类和 AI 都能直接开发</strong>——会 HTML/CSS 就能出原生窗口。</p>
+    </header>
+
+    <div class="cap-grid four">
+      <div class="cap reveal"><b>C99</b><span>引擎核心 ~2.3k 行</span><small>零第三方依赖 · 解析/级联/布局/绘制指令一条管线</small></div>
+      <div class="cap reveal"><b>0</b><span>WebView 依赖</span><small>原生渲染为主路径，WebKit 仅显式声明兜底</small></div>
+      <div class="cap reveal"><b>10</b><span>MCP 工具</span><small>open/update/close/list/persist/restore/sys/shot/dom/dump</small></div>
+      <div class="cap reveal"><b>3</b><span>平台引擎二进制</span><small>macOS / Linux / Windows 五目标产物一条命令产出</small></div>
+    </div>
+
+    <div class="split">
+      <div class="reveal">
+        <h3 class="h3">引擎能力</h3>
+        <ul class="tick-list compact">
+          <li><strong>双渲染器，绝不静默切换</strong> — C99 引擎原生渲染为主；WebKit 兜底须页面显式声明，CSS 归一化保证两条路径长相一致</li>
+          <li><strong>按网页习惯书写</strong> — flexbox / IFC 行内排版 / 子代与兄弟选择器 / 自定义属性 / @media / transition 与入场动画，免单位数值自动归一</li>
+          <li><strong>hn-theme 设计令牌</strong> — dark/light 一行声明得完整设计系统，AI 不写一行 CSS 也能产出精致界面</li>
+          <li><strong>声明式交互</strong> — hx-get/post/trigger（click / load / every 轮询）、sys:// 系统桥（CPU/内存/磁盘/电池）、JavaScriptCore 原生 JS、本地 KV</li>
+          <li><strong>应用生命周期</strong> — 秒开表面（window/popup/layer）、TTL 到期销毁、persist → <code>.hnapp</code> 离线再唤起、同 id 热更新窗口状态保持</li>
+          <li><strong>hnsoft 软件光栅化器</strong> — 无 GUI 场景出 PNG：服务器端渲染截图、CI 视觉回归</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <h3 class="h3">双入口：人类与 Agent 等价</h3>
+        <ul class="tick-list compact">
+          <li><strong>人类路线</strong> — <code>hn new → hn dev</code>：保存即热更新（mtime watch，窗口与状态保持），无 Node、无打包器、无构建链</li>
+          <li><strong>Agent 路线</strong> — 自带 MCP server 与 SKILL.md，agent 现场生成 hn 编码推给常驻宿主；<code>cat foo.html | hn open -</code> 管道即刻成窗，不拉浏览器、不装应用</li>
+          <li><strong>可靠 + 符合审美</strong> — 缺 id 自动分配、hx-auto 容错、主题令牌兜底：agent 生成代码的质量由框架层保证</li>
+        </ul>
+        <p class="muted" style="margin-top:14px">本项目与 deepStudio 同属一个生态、共享「HTML 即最低成本 UI 语言」的理念；当前位于工作区同级目录（<code>deepcodeUI/html-native</code>），本地位置暂不调整。</p>
+      </div>
+    </div>
+
+    <div class="shot-frame reveal">
+      <div class="shot-tabs" role="tablist">
+        <button class="shot-tab is-active" role="tab" data-shot="0">应用演示</button>
+        <button class="shot-tab" role="tab" data-shot="1">系统信息卡</button>
+      </div>
+      <div class="shot-stage">
+        <figure class="shot is-active"><img src="assets/hn-showcase.png" width="1840" height="1280" alt="html-native 原生渲染的桌面应用演示" loading="lazy" /><figcaption>HTML 描述 · 原生渲染 · 解析 → 级联 → 布局 → CoreGraphics，全程无浏览器</figcaption></figure>
+        <figure class="shot portrait"><img src="assets/hn-dashboard.png" width="960" height="1400" alt="html-native 渲染的系统信息仪表盘" loading="lazy" /><figcaption>sys:// 系统桥实时数据 · 一份 HTML 文件即一个桌面应用</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 08 设计哲学 ======================= -->
+<section class="section section-alt" id="philosophy">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-no">08</span>
       <h2>设计哲学 <small>· 跨项目共享</small></h2>
       <p class="quote">「真相只有一个，其余都是投影；改变真相必须过门；任何状态都必须能被重新解释。」</p>
       <p>deepAutoTest 不依赖 deepStudio 的任何代码——两者只共享一套已被验证的设计哲学：</p>
@@ -404,11 +467,11 @@
   </div>
 </section>
 
-<!-- ======================= 08 数据流 ======================= -->
+<!-- ======================= 09 数据流 ======================= -->
 <section class="section section-alt" id="dataflow">
   <div class="container">
     <header class="section-head reveal">
-      <span class="section-no">08</span>
+      <span class="section-no">09</span>
       <h2>数据流 <small>· 谁生产什么</small></h2>
       <p>三条产品线在同一套事实源纪律下衔接。</p>
     </header>
@@ -453,6 +516,21 @@
         <div class="flow-node"><b>结果呈现 / 归档回放</b></div>
       </div>
     </div>
+
+    <div class="lane reveal">
+      <div class="lane-title"><span class="lane-dot dot-native"></span>载体线 · html-native</div>
+      <div class="lane-flow">
+        <div class="flow-node source"><b>hn 编码 · HTML/CSS</b><small>唯一事实源 · 人类手写或 Agent 生成等价</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent"><b>html-native 引擎</b><small>C99 解析 → 布局 → 绘制指令 · 零依赖</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node"><b>系统原生窗口</b><small>window / popup / layer · 无 WebView</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node"><b>秒开 / 热更新</b><small>同 id 推送 · 窗口与状态保持</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node"><b>persist .hnapp</b><small>离线持久化 · 随时可再唤起</small></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -464,7 +542,7 @@
         <img src="assets/orca-icon.png" alt="" width="44" height="44" />
         <div>
           <b>DeepOrca 生态</b>
-          <p>原型 · 设计 · 编码 · 测试 —— AI 创作全链路</p>
+          <p>原型 · 设计 · 编码 · 测试 · 原生交付 —— AI 创作全链路</p>
         </div>
       </div>
       <nav class="footer-links">
@@ -474,17 +552,19 @@
           <a href="https://github.com/asdshuaishuai/moonviz" target="_blank" rel="noopener">asdshuaishuai/moonviz</a>
           <a href="https://github.com/asdshuaishuai/moonviz-demo-tauri" target="_blank" rel="noopener">asdshuaishuai/moonviz-demo-tauri</a>
           <a href="https://github.com/asdshuaishuai/ddpView-mac" target="_blank" rel="noopener">asdshuaishuai/ddpView-mac</a>
+          <a href="https://github.com/asdshuaishuai/html-native" target="_blank" rel="noopener">asdshuaishuai/html-native</a>
         </div>
         <div>
           <h4>文档</h4>
           <a href="https://asdshuaishuai.github.io/moonviz/" target="_blank" rel="noopener">MoonViz 官网</a>
+          <a href="https://asdshuaishuai.github.io/html-native/" target="_blank" rel="noopener">html-native 官网</a>
           <a href="https://github.com/d2rabbit/deepOrca/tree/main/docs" target="_blank" rel="noopener">DeepOrca Docs</a>
           <a href="https://github.com/d2rabbit/deepOrca/blob/main/CHANGELOG.md" target="_blank" rel="noopener">更新日志</a>
           <a href="#philosophy">设计哲学</a>
         </div>
         <div>
           <h4>协议</h4>
-          <p class="muted">DeepOrca · MPL-2.0<br />MoonViz · MIT<br />deepDesign / ddpView · 详见各仓库</p>
+          <p class="muted">DeepOrca · MPL-2.0<br />MoonViz / html-native · MIT<br />deepDesign / ddpView · 详见各仓库</p>
         </div>
       </nav>
     </div>

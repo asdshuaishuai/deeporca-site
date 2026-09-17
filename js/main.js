@@ -43,14 +43,16 @@
   );
   sections.forEach(function (s) { spy.observe(s); });
 
-  /* ---------- 截图页签 ---------- */
-  var tabs = document.querySelectorAll("#shotTabs .shot-tab");
-  var shots = document.querySelectorAll(".shot-stage .shot");
-  tabs.forEach(function (tab) {
-    tab.addEventListener("click", function () {
-      var i = Number(tab.dataset.shot);
-      tabs.forEach(function (t) { t.classList.toggle("is-active", t === tab); });
-      shots.forEach(function (s, k) { s.classList.toggle("is-active", k === i); });
+  /* ---------- 截图页签（支持多画廊） ---------- */
+  document.querySelectorAll(".shot-frame").forEach(function (frame) {
+    var tabs = frame.querySelectorAll(".shot-tab");
+    var shots = frame.querySelectorAll(".shot-stage .shot");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var i = Number(tab.dataset.shot);
+        tabs.forEach(function (t) { t.classList.toggle("is-active", t === tab); });
+        shots.forEach(function (s, k) { s.classList.toggle("is-active", k === i); });
+      });
     });
   });
 
