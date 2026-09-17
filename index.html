@@ -79,7 +79,7 @@
     <header class="section-head reveal">
       <span class="section-no">01</span>
       <h2>生态总览</h2>
-      <p>deepStudio 是 deepDesign 产品线的统一仓库群。六个项目覆盖<strong>创作、设计、查看、测试、交付</strong>五个环节，共享同一套设计哲学，工程上各自独立。</p>
+      <p>deepStudio 是整个生态组的统一工作区。六个项目覆盖<strong>创作、设计、查看、测试、交付</strong>五个环节，共享同一套设计哲学，工程上各自独立。</p>
     </header>
 
     <div class="eco-grid">
@@ -119,7 +119,7 @@
         <div class="eco-icon">🧪</div>
         <div class="eco-meta"><span class="tag tag-wip">基座已落地</span><span class="tag">系统 WebView · Node</span></div>
         <h3>deepAutoTest</h3>
-        <p>源码驱动的 API 自动化测试工作台：把被测源码变成可执行、可追溯、可复现的测试资产。与 deepStudio 哲学同源、工程独立。</p>
+        <p>源码驱动的 API 自动化测试工作台：把被测源码变成可执行、可追溯、可复现的测试资产。与生态设计线哲学同源、工程独立。</p>
         <span class="eco-link">设计文档 11 篇 · kernel 99 项验收测试 →</span>
       </a>
 
@@ -422,7 +422,7 @@
           <li><strong>Agent 路线</strong> — 自带 MCP server 与 SKILL.md，agent 现场生成 hn 编码推给常驻宿主；<code>cat foo.html | hn open -</code> 管道即刻成窗，不拉浏览器、不装应用</li>
           <li><strong>可靠 + 符合审美</strong> — 缺 id 自动分配、hx-auto 容错、主题令牌兜底：agent 生成代码的质量由框架层保证</li>
         </ul>
-        <p class="muted" style="margin-top:14px">本项目与 deepStudio 同属一个生态、共享「HTML 即最低成本 UI 语言」的理念；当前位于工作区同级目录（<code>deepcodeUI/html-native</code>），本地位置暂不调整。</p>
+        <p class="muted" style="margin-top:14px">html-native 与生态共享「HTML 即最低成本 UI 语言」的理念；当前位于工作区同级目录（<code>deepcodeUI/html-native</code>），本地位置暂不调整。</p>
       </div>
     </div>
 
@@ -444,18 +444,18 @@
   <div class="container">
     <header class="section-head reveal">
       <span class="section-no">08</span>
-      <h2>设计哲学 <small>· 跨项目共享</small></h2>
+      <h2>设计哲学 <small>· 全生态共享</small></h2>
       <p class="quote">「真相只有一个，其余都是投影；改变真相必须过门；任何状态都必须能被重新解释。」</p>
-      <p>deepAutoTest 不依赖 deepStudio 的任何代码——两者只共享一套已被验证的设计哲学：</p>
+      <p>deepStudio 生态的六个项目工程上互不依赖代码，共享的是同一套已被验证的设计哲学——它落在每条产品线上：<strong>设计线的唯一事实源是 deepDesign 的一份 <code>.mbt.md</code></strong>，测试线的真相源是 deepAutoTest 的追加式事件日志。</p>
     </header>
 
     <div class="table-wrap reveal">
       <table class="phil-table">
         <thead>
-          <tr><th>哲学</th><th>deepStudio 的落地</th><th>deepAutoTest 的落地</th></tr>
+          <tr><th>哲学</th><th>设计线的落地 · MoonViz / deepDesign / ddpView</th><th>测试线的落地 · deepAutoTest</th></tr>
         </thead>
         <tbody>
-          <tr><td><b>唯一事实源</b></td><td>一份 <code>.mbt.md</code> 是项目真相</td><td>被测源码是资产源头；追加式执行事件日志是结果真相</td></tr>
+          <tr><td><b>唯一事实源</b></td><td>一份 <code>.mbt.md</code> 是 deepDesign 的唯一事实源</td><td>被测源码是资产源头；追加式执行事件日志是结果真相</td></tr>
           <tr><td><b>派生只做缓存</b></td><td>SVG / RenderPlan / 内存 Project 不可持久化</td><td>结果表 / 通过率 / 趋势图都是事件日志的投影，可重建</td></tr>
           <tr><td><b>双向提交边界相同</b></td><td>人类画布与 Agent 操作都经引擎 Gate 写回同一份 MBT</td><td>人类编辑与 Agent 合成产出同一用例模型、写同一事件日志</td></tr>
           <tr><td><b>AI 不越权</b></td><td>Agent 只能调 <code>moonviz_op</code>，AgentGate 更严格</td><td>Agent 产物一律 <code>proposed</code>，人工裁决才 <code>adopted</code></td></tr>

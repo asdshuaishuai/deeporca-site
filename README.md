@@ -13,7 +13,7 @@ DeepOrca 完整生态的介绍网站——纯静态 HTML/CSS/JS，零依赖、�
 | **deepAutoTest** | 源码驱动的 API 自动化测试工作台 | 设计阶段（kernel 已落地，仓库待建） |
 | **html-native** | 原生 UI 框架 / 系统级 PWA 引擎（C99，HTML 即原生窗口） | [asdshuaishuai/html-native](https://github.com/asdshuaishuai/html-native) |
 
-> html-native 位于工作区同级目录 `deepcodeUI/html-native`（非 deepStudio 仓库群内），本地位置暂不调整，仅在本站作为生态项目收录。
+> html-native 位于工作区同级目录 `deepcodeUI/html-native`（与 `deepStudio/` 同级、未移入），本地位置暂不调整，在本站作为生态项目收录。
 
 ## 本地预览
 
