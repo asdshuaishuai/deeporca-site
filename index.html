@@ -49,7 +49,7 @@
     <div class="hero-grid"></div>
   </div>
   <div class="container hero-inner">
-    <p class="hero-eyebrow reveal"><span class="pulse-dot"></span>deepStudio 工作区 · 完整生态 · 六个开源项目</p>
+    <p class="hero-eyebrow reveal"><span class="pulse-dot"></span>deepStudio 生态 · 六个开源项目</p>
     <h1 class="hero-title reveal">Deep<span class="grad">Orca</span> 生态</h1>
     <p class="hero-sub reveal">原型 · 设计 · 编码 · 测试 —— 一套以「唯一事实源」哲学贯穿的<br class="br-desktop" />AI 原生创作工具族</p>
     <p class="hero-desc reveal">
@@ -64,7 +64,7 @@
       <div><dt>6</dt><dd>开源项目</dd></div>
       <div><dt>47</dt><dd>Agent 工具 API</dd></div>
       <div><dt>174</dt><dd>引擎测试 · MoonViz</dd></div>
-      <div><dt>99</dt><dd>验收测试 · deepAutoTest</dd></div>
+      <div><dt>10</dt><dd>MCP 工具 · html-native</dd></div>
       <div><dt>v0.1.34</dt><dd>DeepOrca 当前版本</dd></div>
     </dl>
   </div>
@@ -79,7 +79,7 @@
     <header class="section-head reveal">
       <span class="section-no">01</span>
       <h2>生态总览</h2>
-      <p>deepStudio 是整个生态组的统一工作区。六个项目覆盖<strong>创作、设计、查看、测试、交付</strong>五个环节，共享同一套设计哲学，工程上各自独立。</p>
+      <p>deepStudio 生态由六个开源项目组成，覆盖<strong>创作、设计、查看、测试、交付</strong>五个环节，共享同一套设计哲学，工程上各自独立。</p>
     </header>
 
     <div class="eco-grid">
@@ -117,10 +117,10 @@
 
       <a class="eco-card reveal" href="#deepautotest" data-accent="test">
         <div class="eco-icon">🧪</div>
-        <div class="eco-meta"><span class="tag tag-wip">基座已落地</span><span class="tag">系统 WebView · Node</span></div>
+        <div class="eco-meta"><span class="tag tag-wip">研发中</span><span class="tag">系统 WebView · Node</span></div>
         <h3>deepAutoTest</h3>
         <p>源码驱动的 API 自动化测试工作台：把被测源码变成可执行、可追溯、可复现的测试资产。与生态设计线哲学同源、工程独立。</p>
-        <span class="eco-link">设计文档 11 篇 · kernel 99 项验收测试 →</span>
+        <span class="eco-link">研发中 · 敬请期待</span>
       </a>
 
       <a class="eco-card reveal" href="#htmlnative" data-accent="native">
@@ -345,20 +345,18 @@
   <div class="container">
     <header class="section-head reveal">
       <span class="section-no">06</span>
-      <h2>deepAutoTest <small>· 测试线（基座已落地）</small></h2>
+      <h2>deepAutoTest <small>· 测试线（研发中）</small></h2>
       <p>源码驱动的 API 自动化测试工作台。一句话：<strong>把被测服务的源码变成可执行、可追溯、可复现的测试资产。</strong>文档会过期，源码不会——从源码发现 API、提炼测试数据设计原则，由内嵌 fx Agent 合成用例。</p>
     </header>
 
     <div class="pill-row reveal">
-      <span class="pill pill-on">✅ headless kernel 已落地</span>
-      <span class="pill pill-on">✅ 执行层已闭环</span>
-      <span class="pill">⏳ 适配器 / runner UI / Agent / UI 壳 未开始</span>
+      <span class="pill pill-on">🚧 研发中</span>
     </div>
 
     <div class="cap-grid four">
-      <div class="cap reveal"><b>99</b><span>项验收测试</span><small>判定穷举 / 投影重建 / mock 服务集成（Vitest）</small></div>
+      <div class="cap reveal"><b>步骤树</b><span>用例模型</span><small>前置步骤 · 步骤间传值 · 参数化矩阵</small></div>
       <div class="cap reveal"><b>reduce</b><span>判定是纯函数</span><small>verdict = reduce(events, policy)，改规则不改数据</small></div>
-      <div class="cap reveal"><b>append</b><span>事件日志为真源</span><small>chainHash 防篡改，结果表只是投影、可重建</small></div>
+      <div class="cap reveal"><b>append</b><span>事件日志为真源</span><small>防篡改校验，结果表只是投影、可重建</small></div>
       <div class="cap reveal"><b>re-judge</b><span>历史可重判</span><small>判定逻辑演进后，对历史运行重新判定无需重跑</small></div>
     </div>
 
@@ -378,8 +376,8 @@
         <p class="muted">AST 分析（ts-morph）、HTTP 执行（undici）、数据库采样、Agent 生态全在 Node——必须内置 Node；
         但 Electron 捆绑 Chromium 约 124 MB 过重，Tauri 后端是 Rust 会丢 Node 生态。结论：
         <strong>把系统 WebView 直接绑进 Node 进程，体积约 55–70 MB，减半</strong>，且页面天然无 Node 权限——隔离是结构性的。</p>
-        <p class="muted">实测发现 <code>show()</code> 会阻塞 Node 事件循环，因此<strong>所有 IO 必须走 Worker</strong>，跨线程用 SharedArrayBuffer + Atomics 同步——方案已本机实测跑通（页面 13 次真实 HTTP 全成功）。</p>
-        <div class="chips"><span>基座零运行时依赖</span><span>执行层仅依赖 undici</span><span>node:sqlite 零原生依赖</span></div>
+        <p class="muted">由于系统 WebView 的 <code>show()</code> 会阻塞 Node 事件循环，<strong>所有 IO 必须走 Worker</strong>，跨线程用 SharedArrayBuffer + Atomics 同步——这是架构里的硬约束，不是可选优化。</p>
+        <div class="chips"><span>副作用侧证 db_check</span><span>五级断言严重度</span><span>SSRF 分档</span></div>
       </div>
     </div>
   </div>
@@ -422,18 +420,17 @@
           <li><strong>Agent 路线</strong> — 自带 MCP server 与 SKILL.md，agent 现场生成 hn 编码推给常驻宿主；<code>cat foo.html | hn open -</code> 管道即刻成窗，不拉浏览器、不装应用</li>
           <li><strong>可靠 + 符合审美</strong> — 缺 id 自动分配、hx-auto 容错、主题令牌兜底：agent 生成代码的质量由框架层保证</li>
         </ul>
-        <p class="muted" style="margin-top:14px">html-native 与生态共享「HTML 即最低成本 UI 语言」的理念；当前位于工作区同级目录（<code>deepcodeUI/html-native</code>），本地位置暂不调整。</p>
       </div>
     </div>
 
     <div class="shot-frame reveal">
       <div class="shot-tabs" role="tablist">
         <button class="shot-tab is-active" role="tab" data-shot="0">应用演示</button>
-        <button class="shot-tab" role="tab" data-shot="1">系统信息卡</button>
+        <button class="shot-tab" role="tab" data-shot="1">Agent 卡片</button>
       </div>
       <div class="shot-stage">
         <figure class="shot is-active"><img src="assets/hn-showcase.png" width="1840" height="1280" alt="html-native 原生渲染的桌面应用演示" loading="lazy" /><figcaption>HTML 描述 · 原生渲染 · 解析 → 级联 → 布局 → CoreGraphics，全程无浏览器</figcaption></figure>
-        <figure class="shot portrait"><img src="assets/hn-dashboard.png" width="960" height="1400" alt="html-native 渲染的系统信息仪表盘" loading="lazy" /><figcaption>sys:// 系统桥实时数据 · 一份 HTML 文件即一个桌面应用</figcaption></figure>
+        <figure class="shot portrait"><img src="assets/hn-agent-card.png" width="720" height="1040" alt="html-native 渲染的 agent 生成信息卡片" loading="lazy" /><figcaption>agent 现场生成 hn 编码 → 管道成窗 · 零构建零依赖</figcaption></figure>
       </div>
     </div>
   </div>
@@ -509,7 +506,7 @@
         <span class="flow-arrow">→</span>
         <div class="flow-node accent"><b>deepAutoTest</b><small>fx Agent 合成用例 · 人工确认门</small></div>
         <span class="flow-arrow">→</span>
-        <div class="flow-node source"><b>追加式事件日志</b><small>真相 · chainHash 防篡改</small></div>
+        <div class="flow-node source"><b>追加式事件日志</b><small>真相 · 防篡改校验</small></div>
         <span class="flow-arrow">→</span>
         <div class="flow-node"><b>判定 reduce</b><small>纯函数 · 可重判</small></div>
         <span class="flow-arrow">→</span>
@@ -569,7 +566,7 @@
       </nav>
     </div>
     <div class="footer-bottom">
-      <span>deepStudio 工作区 · DeepOrca 生态官网</span>
+      <span>DeepOrca 生态官网</span>
       <span class="muted">Built with plain HTML/CSS/JS · © 2026 DeepOrca contributors</span>
     </div>
   </div>
