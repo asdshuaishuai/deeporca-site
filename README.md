@@ -31,7 +31,7 @@ python3 -m http.server 8080
 
 ```
 deeporca-site/
-├── index.html        # 单页官网（8 个分区）
+├── index.html        # 单页官网（10 个分区：总览 / 六大项目 / 设计哲学 / 数据流 / 开源感谢）
 ├── css/style.css     # 深海主题样式
 ├── js/main.js        # 导航 / 页签 / 滚动浮现
 └── assets/           # DeepOrca 图标与产品截图

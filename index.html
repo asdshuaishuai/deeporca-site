@@ -27,8 +27,13 @@
       <a href="#htmlnative">html-native</a>
       <a href="#philosophy">设计哲学</a>
       <a href="#dataflow">数据流</a>
+      <a href="#thanks">开源感谢</a>
     </nav>
     <div class="nav-actions">
+      <a class="btn btn-primary btn-sm" href="https://github.com/asdshuaishuai/deepdesign-studio/releases/latest" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M8.75 1.5a.75.75 0 0 0-1.5 0v7.44L4.53 6.22a.75.75 0 0 0-1.06 1.06l4 4a.75.75 0 0 0 1.06 0l4-4a.75.75 0 1 0-1.06-1.06L8.75 8.94V1.5ZM2.5 12.75a.75.75 0 0 1 1.5 0v.5h8v-.5a.75.75 0 0 1 1.5 0v.75a1.25 1.25 0 0 1-1.25 1.25H3.75A1.25 1.25 0 0 1 2.5 13.5v-.75Z"/></svg>
+        Download
+      </a>
       <a class="btn btn-ghost btn-sm" href="https://github.com/d2rabbit/deepOrca" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
         GitHub
@@ -301,6 +306,13 @@
       <figure><img src="assets/shots/components.png" alt="AI 组件库——65 个内置组件分类可搜索" loading="lazy"><figcaption>内置 65 组件库：分类浏览 · 关键词搜索 · 点击/拖放放置</figcaption></figure>
     </div>
 
+    <div class="pill-row reveal">
+      <span class="pill pill-on">⬇ deepDesign Studio v0.3.0 现已可用</span>
+      <span class="pill"><a href="https://github.com/asdshuaishuai/deepdesign-studio/releases/latest" target="_blank" rel="noopener">macOS · GitHub Releases 下载</a></span>
+      <span class="pill">Windows · NSIS（CI 构建）</span>
+      <span class="pill">Tauri 2 · Rust</span>
+    </div>
+
     <div class="arch-flow reveal">
       <div class="arch-node"><b>前端</b><span>纯静态 · 多画板画布（拖拽排布）/ 65 组件库 / MBT 源码视图 / 演示模式 + 手绘批注 / 多项目多窗口</span></div>
       <div class="arch-arrow">invoke</div>
@@ -550,6 +562,37 @@
         <div class="flow-node"><b>persist .hnapp</b><small>离线持久化 · 随时可再唤起</small></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ======================= 10 开源感谢 ======================= -->
+<section class="section" id="thanks">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-no">10</span>
+      <h2>开源感谢 <small>· built in the open</small></h2>
+      <p>deepStudio 生态本身就是开源作品——从引擎到客户端，每一层都站在开源社区的肩膀上，也以开源回馈。<strong>特别感谢我们自己的引擎 MoonViz</strong>：它是整个设计线的地基，也是生态中最早开源、最纯粹的一块。</p>
+    </header>
+
+    <div class="feature-grid cols-4">
+      <div class="feature reveal" style="grid-column:1/-1;border-color:rgba(47,107,79,.55);background:linear-gradient(135deg,rgba(47,107,79,.10),transparent 60%)">
+        <span>🌙</span>
+        <b>重点感谢 · MoonViz — 我们自己的引擎</b>
+        <p>deepDesign 的每一笔人类画布操作、每一次 Agent 修改，都由 MoonViz 校验回写。<strong>100% MoonBit、零手写 JS</strong>：47 个 Agent 工具走统一文本协议，HumanGate / AgentGate 双门守住设计质量，标准 classic WASM 产物让同一份引擎在 WebView 与 wasmtime 里逐字节一致地运行。<code>.mbt.md</code> 唯一事实源的设计由它定义、被整个生态遵循。MIT 开源，引擎仓库直接接收 issue 反馈。</p>
+        <div class="chips"><span><a href="https://github.com/asdshuaishuai/moonviz" target="_blank" rel="noopener">asdshuaishuai/moonviz</a></span><span><a href="https://asdshuaishuai.github.io/moonviz/" target="_blank" rel="noopener">引擎官网</a></span><span>MIT License</span><span>100% MoonBit</span></div>
+      </div>
+
+      <div class="feature reveal"><span>🧩</span><b>Tauri 2</b><p>deepDesign Studio 的桌面应用壳：系统 WebView + Rust 后端，安装包轻量。</p><div class="chips"><span>MIT / Apache-2.0</span></div></div>
+      <div class="feature reveal"><span>⚙️</span><b>wasmtime</b><p>Bytecode Alliance 的 WASM 运行时——引擎在 Rust 侧的进程内宿主，无子进程、无 JS 运行时。</p><div class="chips"><span>Apache-2.0 (LLVM exception)</span></div></div>
+      <div class="feature reveal"><span>🌙</span><b>MoonBit</b><p>MoonViz 引擎的编程语言与工具链：类型安全、WASM 优先的现代化语言。</p><div class="chips"><span>moonbitlang</span></div></div>
+      <div class="feature reveal"><span>🦀</span><b>tokio · reqwest · serde</b><p>Rust 异步运行时、HTTP 客户端与序列化基座——Agent 循环与 DDP 读写都构建其上。</p><div class="chips"><span>MIT / Apache-2.0</span></div></div>
+      <div class="feature reveal"><span>🔐</span><b>RustCrypto</b><p><code>argon2</code> + <code>chacha20poly1305</code>：DDP 加密容器的密钥派生与认证加密。</p><div class="chips"><span>MIT / Apache-2.0</span></div></div>
+      <div class="feature reveal"><span>📡</span><b>async-openai</b><p>chat-completion 类型层为工具 schema 提供类型化构造（响应侧保持 raw JSON 以兼容各家网关方言）。</p><div class="chips"><span>Apache-2.0</span></div></div>
+      <div class="feature reveal"><span>📊</span><b>models.dev</b><p>模型元数据快照来源：服务商端点、上下文窗口与能力标签的裁剪事实源。</p><div class="chips"><span>MIT · api.json</span></div></div>
+      <div class="feature reveal"><span>🐋</span><b>Deep Code</b><p><code>@vegamo/deepcode</code>（MIT）——DeepOrca 的上游，核心引擎架构的起点，版权声明完整保留于 NOTICE。</p><div class="chips"><span>MIT</span></div></div>
+    </div>
+
+    <p class="section-footnote reveal">感谢所有上述项目的维护者与贡献者。生态内各项目均为独立开源仓库，欢迎 issue 与 PR。</p>
   </div>
 </section>
 
