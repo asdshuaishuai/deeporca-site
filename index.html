@@ -103,8 +103,8 @@
         <div class="eco-icon">🎨</div>
         <div class="eco-meta"><span class="tag">视觉编辑器</span><span class="tag">Tauri 2 · Rust</span></div>
         <h3>deepDesign Studio</h3>
-        <p>人类编辑路线的桌面客户端：多画板画布、decl 源码视图、进程内 Agent 循环，DDP 加密导出。与 Agent 共写同一份事实源。</p>
-        <span class="eco-link">asdshuaishuai/moonviz-demo-tauri →</span>
+        <p>人类编辑路线的桌面客户端：多画板画布、进程内 Agent 循环与收尾审查层、演示模式手绘批注、DDP 加密分发。与 Agent 共写同一份事实源。</p>
+        <span class="eco-link">asdshuaishuai/deepdesign-studio →</span>
       </a>
 
       <a class="eco-card reveal" href="#ddpview" data-accent="view">
@@ -295,34 +295,35 @@
     </header>
 
     <div class="shots reveal">
-      <figure><img src="assets/shots/editor-dark.png" alt="deepDesign 编辑视图——多画板画布与交互流" loading="lazy"><figcaption>多画板编辑视图：流连线 · 图层树 · 属性检查器 · Agent 追踪</figcaption></figure>
+      <figure><img src="assets/shots/editor-dark.png" alt="deepDesign 编辑视图——多画板画布与交互流" loading="lazy"><figcaption>多画板编辑视图：图层树 · 组件库 · 属性检查器 · Agent 追踪</figcaption></figure>
+      <figure><img src="assets/shots/demo-ink.png" alt="演示模式手绘批注——橙色马克笔圈点讲解" loading="lazy"><figcaption>演示模式 ✏ 手绘批注：全画板马克笔圈点，批注持久化在 DDP、可修改</figcaption></figure>
       <figure><img src="assets/shots/demo-clean.png" alt="演示模式——隐藏热区标注后的真实成品观感" loading="lazy"><figcaption>演示模式：一键隐藏交互标注，成品观感、点击不失效</figcaption></figure>
       <figure><img src="assets/shots/components.png" alt="AI 组件库——65 个内置组件分类可搜索" loading="lazy"><figcaption>内置 65 组件库：分类浏览 · 关键词搜索 · 点击/拖放放置</figcaption></figure>
     </div>
 
     <div class="arch-flow reveal">
-      <div class="arch-node"><b>前端</b><span>纯静态 · 多画板画布 / 65 组件库 / MBT 源码视图 / 演示模式 / 多项目多窗口</span></div>
+      <div class="arch-node"><b>前端</b><span>纯静态 · 多画板画布（拖拽排布）/ 65 组件库 / MBT 源码视图 / 演示模式 + 手绘批注 / 多项目多窗口</span></div>
       <div class="arch-arrow">invoke</div>
-      <div class="arch-node"><b>Rust 后端</b><span>wasmtime 进程内引擎宿主 · Agent 循环（OpenAI / Anthropic 双协议）· DDP 加解密</span></div>
+      <div class="arch-node"><b>Rust 后端</b><span>wasmtime 进程内引擎宿主 · Agent 循环（OpenAI / Anthropic 双协议）+ 收尾审查层 · 同步渲染预览 · DDP 加解密</span></div>
       <div class="arch-arrow">wasm 直调</div>
       <div class="arch-node"><b>MoonViz 引擎</b><span>标准 classic WASM 编译期内嵌 · HumanGate / AgentGate 双门 · canonical 回写 · 零工具链</span></div>
     </div>
 
     <div class="feature-grid">
-      <div class="feature reveal"><span>🤖</span><b>进程内 Agent</b><p>Rust Agent 循环 × wasmtime 宿主：无 JS 运行时、无子进程桥。OpenAI / Anthropic 双协议，thinking 等级按 8 家厂商方言下发，随时一键修复 / 深色主题 / 澄清式多轮。</p></div>
-      <div class="feature reveal"><span>🗂️</span><b>多项目 · 多窗口</b><p>最近项目下拉热切换（不重启应用）；每个项目可开独立系统窗口并行编辑，未保存更改按窗口独立保护。</p></div>
-      <div class="feature reveal"><span>▶</span><b>演示模式</b><p>底部操作栏：上一页回退 / 路径面包屑 / 一键隐藏热区标注（真实成品观感、点击不失效）/ 强制返回——漏接交互的返回钮也能点，演示绝不卡死。</p></div>
+      <div class="feature reveal"><span>🤖</span><b>进程内 Agent + 收尾审查</b><p>Rust Agent 循环 × wasmtime 宿主：无 JS 运行时、无子进程桥。OpenAI / Anthropic 双协议，thinking 等级按 8 家厂商方言下发；设计完成后自动进入<strong>三段收尾审查</strong>——需求完整度、操作逻辑连线、综合修复，发现缺口直接补齐，产出即验收。</p></div>
+      <div class="feature reveal"><span>⚡</span><b>同步渲染预览</b><p>Agent 执行过程画布<strong>实时可见</strong>：每步变更节流回传、900ms 节流渲染上屏——不是等终态的黑盒，而是看着设计一步步长出来。事实源仍由终态回灌收口，预览不污染文档。</p></div>
+      <div class="feature reveal"><span>🗂️</span><b>多项目 · 多窗口</b><p>最近项目下拉热切换（不重启应用）；每个项目可开独立系统窗口并行编辑，未保存更改按窗口独立保护；画板支持拖拽移动、自由排布画布。</p></div>
+      <div class="feature reveal"><span>▶</span><b>演示模式 + 手绘批注</b><p>底部操作栏：路径面包屑 / 一键隐藏热区（真实成品观感）/ 强制返回——漏接交互的返回钮也能点。✏ 全画板<strong>手绘批注</strong>：中点贝塞尔平滑笔迹，批注持久化在 DDP 内，重新打开自动重放、可继续修改。</p></div>
       <div class="feature reveal"><span>🧠</span><b>上下文管理</b><p>Agent 历史三层裁剪：工具结果整形（剥离冗余校验块）、同源去重、按模型上下文窗口预算——多页长任务成本可控、不丢关键信息。</p></div>
-      <div class="feature reveal"><span>🏭</span><b>13 家服务商预设</b><p>DeepSeek / GLM 双平台 / Kimi 双线 / MiniMax 国内外双协议（OpenAI + Anthropic）/ StepFun，models.dev 快照本地化，离线可用、模型能力标签与思考档位自动收窄。</p></div>
-      <div class="feature reveal"><span>🔐</span><b>DDP 加密分发</b><p>Argon2id + XChaCha20 加密导出（或免密 DDP2），最近项目热切换、新窗口并行——与 ddpView 查看器回路一致。</p></div>
+      <div class="feature reveal"><span>🔐</span><b>13 家服务商 · DDP 分发</b><p>DeepSeek / GLM / Kimi / MiniMax 双协议 / StepFun 等 models.dev 快照本地化，离线可用、能力标签自动收窄；Argon2id + XChaCha20 加密导出（或免密 DDP2），与 ddpView 查看器回路一致。</p></div>
     </div>
 
     <div class="usage reveal">
       <h3>快速上手</h3>
       <ol>
-        <li><b>起步</b>：欢迎页选模板，或对底部 Prompt 条直接说需求——Agent 一次生成多页可交互原型（如「城市露营装备租赁」5 页小程序，一次约 5 分钟）。</li>
-        <li><b>编辑</b>：画布点选任意元素改属性；「AI 组件」面板 65 个内置组件点击/拖放放置；「MBT 源码」视图直接编辑 <code>.mbt.md</code>，校验后即时渲染。</li>
-        <li><b>演示</b>：⌘4 进入演示模式——绿框标注可点击交互，可一键隐藏成真实成品观感；◀ 返回 / Esc 回退上一页，退出即回编辑模式。</li>
+        <li><b>起步</b>：欢迎页选模板，或对底部 Prompt 条直接说需求——Agent 一次生成多页可交互原型（画布实时同步渲染，完成后自动三段审查补缺口）。</li>
+        <li><b>编辑</b>：画板可拖拽移动排布；画布点选任意元素改属性；「AI 组件」面板 65 个内置组件点击/拖放放置；「MBT 源码」视图直接编辑 <code>.mbt.md</code>，校验后即时渲染。</li>
+        <li><b>演示</b>：⌘4 进入演示模式——底部操作栏导航，可一键隐藏交互热区成真实成品观感；✏ 开启手绘批注圈点讲解，批注随项目保存、下次打开自动重放；◀ / Esc 回退上一页。</li>
         <li><b>保存与分发</b>：⌘S 导出 DDP（Argon2id 加密或免密）；项目名下拉热切换最近项目，⧉ 在新窗口并行打开多个项目。</li>
       </ol>
     </div>
@@ -568,7 +569,7 @@
           <h4>项目仓库</h4>
           <a href="https://github.com/d2rabbit/deepOrca" target="_blank" rel="noopener">d2rabbit/deepOrca</a>
           <a href="https://github.com/asdshuaishuai/moonviz" target="_blank" rel="noopener">asdshuaishuai/moonviz</a>
-          <a href="https://github.com/asdshuaishuai/moonviz-demo-tauri" target="_blank" rel="noopener">asdshuaishuai/moonviz-demo-tauri</a>
+          <a href="https://github.com/asdshuaishuai/deepdesign-studio" target="_blank" rel="noopener">asdshuaishuai/deepdesign-studio</a>
           <a href="https://github.com/asdshuaishuai/ddpView-mac" target="_blank" rel="noopener">asdshuaishuai/ddpView-mac</a>
           <a href="https://github.com/asdshuaishuai/html-native" target="_blank" rel="noopener">asdshuaishuai/html-native</a>
         </div>
