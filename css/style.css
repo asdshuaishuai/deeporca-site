@@ -616,3 +616,18 @@ code {
   .table-wrap { overflow-x: auto; }
   .phil-table { min-width: 560px; }
 }
+
+
+/* ---- deepDesign 段：截图墙 / 生态链接 / 使用文档 ---- */
+.eco-links{font-size:12.5px;color:var(--ink3);margin-top:10px}
+.eco-links a{font-weight:600}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:26px 0}
+.shots figure{margin:0;background:var(--panel,#fff);border:1px solid var(--line,#E2E8F0);border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(15,23,42,.08)}
+.shots img{width:100%;display:block}
+.shots figcaption{font-size:12px;color:var(--ink3);padding:10px 14px;border-top:1px solid var(--line,#E2E8F0)}
+.usage{margin:26px 0 8px;background:var(--panel,#fff);border:1px solid var(--line,#E2E8F0);border-radius:14px;padding:22px 26px}
+.usage h3{margin:0 0 12px;font-size:16px}
+.usage ol{margin:0;padding-left:20px}
+.usage li{margin-bottom:10px;font-size:14px;color:var(--ink2)}
+.usage li b{color:var(--ink)}
+
