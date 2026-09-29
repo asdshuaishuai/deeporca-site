@@ -38,7 +38,7 @@ python3 -m http.server 8080
 
 ```
 deeporca-site/
-├── index.html        # 单页官网（hero + 11 个编号分区 + footer）
+├── index.html        # 单页官网（hero + 12 个编号分区 + footer）
 ├── css/style.css     # 纸感图录主题（暖纸底 · 墨灰字 · 低饱和陶土/苔绿）
 ├── js/main.js        # 导航 / 截图页签 / 滚动浮现
 └── assets/           # 站点图标 + 产品截图（截图暂不展示，文件保留）

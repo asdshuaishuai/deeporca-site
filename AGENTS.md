@@ -37,7 +37,7 @@ git -C /Volumes/data/dev/coding/deepcodeUI/deepStudio/<dir> remote get-url origi
 
 ```
 deeporca-site/
-├── index.html        # 单页全部内容，11 个编号分区（01–11）+ hero + footer
+├── index.html        # 单页全部内容，12 个编号分区（01–12）+ hero + footer
 ├── css/style.css     # 纸感图录主题，全部视觉 token 集中在 :root
 ├── js/main.js        # IIFE 包裹的原生 JS，无依赖
 └── assets/           # 产品截图与图标（PNG，文件名小写连字符）
@@ -71,7 +71,8 @@ python3 -m http.server 8080
   </section>
   ```
 - **深浅交替**：分区按 `section` → `section-alt` 交替，改动顺序时注意保持交替规律。
-- **编号连续**：`section-no` 目前是 01–11，插入/删除分区后要重排后续所有编号与 `<!-- === NN 分区 === -->` 注释，并同步更新 hero 与 footer 的描述。
+- **编号连续**：`section-no` 目前是 01–12，插入/删除分区后要重排后续所有编号与 `<!-- === NN 分区 === -->` 注释，并同步更新 hero 与 footer 的描述。
+- **旧变量别名**：`:root` 里的 `--ink` / `--ink2` / `--ink3` / `--panel` 是别名，供文件尾追加的 deepDesign 段（`.usage` `.eco-links` `.shots`）使用；直接删掉会让那段文字掉色。
 - **导航三处同步**：新增分区必须同时改 `.nav-links`（顶部导航）、`.footer-links`（页脚链接）、`section id`，三者通过 `#id` 锚点对应，缺一处就会出现导航失效。
 - **滚动浮现**：任何需要入场动画的块都要加 `reveal` 类，由 `main.js` 的 `IntersectionObserver` 统一处理；不加就没有动画（不是 bug）。
 

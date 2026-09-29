@@ -29,8 +29,10 @@
       <a href="#htmlnative">html-native</a>
       <a href="#philosophy">设计哲学</a>
       <a href="#dataflow">数据流</a>
+      <a href="#thanks">开源感谢</a>
     </nav>
     <div class="nav-actions">
+      <span class="btn btn-ghost btn-sm btn-download" style="cursor:default;opacity:.65">Download · Coming Soon</span>
       <a class="btn btn-ghost btn-sm" href="https://github.com/d2rabbit/deepOrca" target="_blank" rel="noopener">
         <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
         GitHub
@@ -105,7 +107,7 @@
         <div class="eco-icon">🎨</div>
         <div class="eco-meta"><span class="tag">视觉编辑器</span><span class="tag">Tauri 2 · Rust</span></div>
         <h3>deepDesign Studio</h3>
-        <p>人类编辑路线的桌面客户端：多画板画布、decl 源码视图、进程内 Agent 循环，DDP 加密导出。与 Agent 共写同一份事实源。</p>
+        <p>人类编辑路线的桌面客户端：多画板画布、进程内 Agent 循环与收尾审查层、演示模式手绘批注、DDP 加密分发。与 Agent 共写同一份事实源。</p>
         <span class="eco-link">asdshuaishuai/deepdesign-studio →</span>
       </a>
 
@@ -300,24 +302,42 @@
     <header class="section-head reveal">
       <span class="section-no">04</span>
       <h2>deepDesign Studio <small>· 人类编辑路线</small></h2>
-      <p>AI 原生原型设计工具的桌面客户端（Tauri 2）。基于 MoonViz 引擎：<strong>人类画布操作与 Agent 修改都经引擎校验（HumanGate / AgentGate）后回写同一份 <code>.mbt.md</code></strong>。</p>
+      <p>AI 原生原型设计工具的桌面客户端（Tauri 2 + Rust）。基于 MoonViz 引擎：<strong>人类画布操作与 Agent 修改都经引擎校验（HumanGate / AgentGate）后回写同一份 <code>.mbt.md</code></strong> —— 唯一事实源，桌面端 / ddpView / 未来 Web 端全生态共用同一文档。引擎以标准 WASM 产物内嵌于 wasmtime 进程内宿主，用户无需任何工具链。</p>
+      <p class="eco-links">🌙 <a href="https://asdshuaishuai.github.io/moonviz/" target="_blank" rel="noopener">MoonViz 引擎官网</a> · <a href="https://github.com/asdshuaishuai/moonviz" target="_blank" rel="noopener">MoonViz 源码</a> · <a href="https://github.com/asdshuaishuai/deepdesign-studio" target="_blank" rel="noopener">deepDesign 源码</a></p>
     </header>
 
+    <div class="pill-row reveal">
+      <span class="pill pill-on">deepDesign Studio v0.3.0</span>
+      <span class="pill">macOS · 下载即将开放</span>
+      <span class="pill">Windows · NSIS（CI 构建）</span>
+      <span class="pill">Tauri 2 · Rust</span>
+    </div>
+
     <div class="arch-flow reveal">
-      <div class="arch-node"><b>前端</b><span>纯静态 · 多画板画布 / 组件库 / decl 源码视图 / 演示模式</span></div>
+      <div class="arch-node"><b>前端</b><span>纯静态 · 多画板画布（拖拽排布）/ 65 组件库 / MBT 源码视图 / 演示模式 + 手绘批注 / 多项目多窗口</span></div>
       <div class="arch-arrow">invoke</div>
-      <div class="arch-node"><b>Rust 后端</b><span>exec_cli 引擎管道 · 进程内 Agent 循环 · DDP 读写</span></div>
-      <div class="arch-arrow">stdio</div>
-      <div class="arch-node"><b>MoonViz 引擎</b><span>独立二进制随包分发 · JSON 行协议 · 用户无需工具链</span></div>
+      <div class="arch-node"><b>Rust 后端</b><span>wasmtime 进程内引擎宿主 · Agent 循环（OpenAI / Anthropic 双协议）+ 收尾审查层 · 同步渲染预览 · DDP 加解密</span></div>
+      <div class="arch-arrow">wasm 直调</div>
+      <div class="arch-node"><b>MoonViz 引擎</b><span>标准 classic WASM 编译期内嵌 · HumanGate / AgentGate 双门 · canonical 回写 · 零工具链</span></div>
     </div>
 
     <div class="feature-grid">
-      <div class="feature reveal"><span>🖼️</span><b>多画板画布</b><p>画布拖拽的中间态可以带「视觉债」保存，角标提示、后续清偿——HumanGate 软门槛。</p></div>
-      <div class="feature reveal"><span>🤖</span><b>进程内 Agent</b><p>Rust 实现 Agent 循环，无 JS 运行时、无子进程桥。LLM 走任意 OpenAI 兼容端点。</p></div>
-      <div class="feature reveal"><span>🏢</span><b>13 个服务商预设</b><p>OpenAI / Anthropic 双协议，thinking 等级按 8 家厂商方言下发；models.dev 快照本地化，离线可用。</p></div>
-      <div class="feature reveal"><span>🔐</span><b>DDP 加密导出</b><p>设计文档加密分发，与 ddpView 查看器、Studio 打开回路一致。</p></div>
-      <div class="feature reveal"><span>📦</span><b>跨平台打包</b><p>macOS <code>.app</code> / <code>.dmg</code> 内嵌引擎二进制；Windows NSIS 由 GitHub Actions 构建。</p></div>
-      <div class="feature reveal"><span>🧪</span><b>端到端测试</b><p>mock-LLM × 真实引擎二进制的 cargo 端到端循环 + 前端状态机冒烟。</p></div>
+      <div class="feature reveal"><span>🤖</span><b>进程内 Agent + 收尾审查</b><p>Rust Agent 循环 × wasmtime 宿主：无 JS 运行时、无子进程桥。OpenAI / Anthropic 双协议，thinking 等级按 8 家厂商方言下发；设计完成后自动进入<strong>三段收尾审查</strong>——需求完整度、操作逻辑连线、综合修复，发现缺口直接补齐，产出即验收。</p></div>
+      <div class="feature reveal"><span>⚡</span><b>同步渲染预览</b><p>Agent 执行过程画布<strong>实时可见</strong>：每步变更节流回传、900ms 节流渲染上屏——不是等终态的黑盒，而是看着设计一步步长出来。事实源仍由终态回灌收口，预览不污染文档。</p></div>
+      <div class="feature reveal"><span>🗂️</span><b>多项目 · 多窗口</b><p>最近项目下拉热切换（不重启应用）；每个项目可开独立系统窗口并行编辑，未保存更改按窗口独立保护；画板支持拖拽移动、自由排布画布。</p></div>
+      <div class="feature reveal"><span>▶</span><b>演示模式 + 手绘批注</b><p>底部操作栏：路径面包屑 / 一键隐藏热区（真实成品观感）/ 强制返回——漏接交互的返回钮也能点。✏ 全画板<strong>手绘批注</strong>：中点贝塞尔平滑笔迹，批注持久化在 DDP 内，重新打开自动重放、可继续修改。</p></div>
+      <div class="feature reveal"><span>🧠</span><b>上下文管理</b><p>Agent 历史三层裁剪：工具结果整形（剥离冗余校验块）、同源去重、按模型上下文窗口预算——多页长任务成本可控、不丢关键信息。</p></div>
+      <div class="feature reveal"><span>🔐</span><b>13 家服务商 · DDP 分发</b><p>DeepSeek / GLM / Kimi / MiniMax 双协议 / StepFun 等 models.dev 快照本地化，离线可用、能力标签自动收窄；Argon2id + XChaCha20 加密导出（或免密 DDP2），与 ddpView 查看器回路一致。</p></div>
+    </div>
+
+    <div class="usage reveal">
+      <h3>快速上手</h3>
+      <ol>
+        <li><b>起步</b>：欢迎页选模板，或对底部 Prompt 条直接说需求——Agent 一次生成多页可交互原型（画布实时同步渲染，完成后自动三段审查补缺口）。</li>
+        <li><b>编辑</b>：画板可拖拽移动排布；画布点选任意元素改属性；「AI 组件」面板 65 个内置组件点击/拖放放置；「MBT 源码」视图直接编辑 <code>.mbt.md</code>，校验后即时渲染。</li>
+        <li><b>演示</b>：⌘4 进入演示模式——底部操作栏导航，可一键隐藏交互热区成真实成品观感；✏ 开启手绘批注圈点讲解，批注随项目保存、下次打开自动重放；◀ / Esc 回退上一页。</li>
+        <li><b>保存与分发</b>：⌘S 导出 DDP（Argon2id 加密或免密）；项目名下拉热切换最近项目，⧉ 在新窗口并行打开多个项目。</li>
+      </ol>
     </div>
   </div>
 </section>
@@ -666,6 +686,37 @@
         <div class="flow-node"><b>persist .hnapp</b><small>离线持久化 · 随时可再唤起</small></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ======================= 12 开源感谢 ======================= -->
+<section class="section section-alt" id="thanks">
+  <div class="container">
+    <header class="section-head reveal">
+      <span class="section-no">12</span>
+      <h2>开源感谢 <small>· built in the open</small></h2>
+      <p>DeepOrca 生态本身就是开源作品——从引擎到客户端，每一层都站在开源社区的肩膀上，也以开源回馈。<strong>特别感谢 MoonViz 引擎</strong>：它是整个设计线的地基。</p>
+    </header>
+
+    <div class="feature-grid cols-4">
+      <div class="feature reveal" style="grid-column:1/-1;border-color:rgba(47,107,79,.55);background:linear-gradient(135deg,rgba(47,107,79,.10),transparent 60%)">
+        <span>🌙</span>
+        <b>🌙 MoonViz 引擎</b>
+        <p>deepDesign 的每一笔人类画布操作、每一次 Agent 修改，都由 MoonViz 校验回写。<strong>100% MoonBit、零手写 JS</strong>：52 个 Agent 工具走统一文本协议，HumanGate / AgentGate 双门守住设计质量，标准 classic WASM 产物让同一份引擎在 WebView 与 wasmtime 里逐字节一致地运行。<code>.mbt.md</code> 唯一事实源的设计由它定义、被整个生态遵循。MIT 开源，引擎仓库直接接收 issue 反馈。</p>
+        <div class="chips"><span><a href="https://github.com/asdshuaishuai/moonviz" target="_blank" rel="noopener">asdshuaishuai/moonviz</a></span><span><a href="https://asdshuaishuai.github.io/moonviz/" target="_blank" rel="noopener">引擎官网</a></span><span>MIT License</span><span>100% MoonBit</span></div>
+      </div>
+
+      <div class="feature reveal"><span>🧩</span><b>Tauri 2</b><p>deepDesign Studio 的桌面应用壳：系统 WebView + Rust 后端，安装包轻量。</p><div class="chips"><span>MIT / Apache-2.0</span></div></div>
+      <div class="feature reveal"><span>⚙️</span><b>wasmtime</b><p>Bytecode Alliance 的 WASM 运行时——引擎在 Rust 侧的进程内宿主，无子进程、无 JS 运行时。</p><div class="chips"><span>Apache-2.0 (LLVM exception)</span></div></div>
+      <div class="feature reveal"><span>🌙</span><b>MoonBit</b><p>MoonViz 引擎的编程语言与工具链：类型安全、WASM 优先的现代化语言。</p><div class="chips"><span>moonbitlang</span></div></div>
+      <div class="feature reveal"><span>🦀</span><b>tokio · reqwest · serde</b><p>Rust 异步运行时、HTTP 客户端与序列化基座——Agent 循环与 DDP 读写都构建其上。</p><div class="chips"><span>MIT / Apache-2.0</span></div></div>
+      <div class="feature reveal"><span>🔐</span><b>RustCrypto</b><p><code>argon2</code> + <code>chacha20poly1305</code>：DDP 加密容器的密钥派生与认证加密。</p><div class="chips"><span>MIT / Apache-2.0</span></div></div>
+      <div class="feature reveal"><span>📡</span><b>async-openai</b><p>chat-completion 类型层为工具 schema 提供类型化构造（响应侧保持 raw JSON 以兼容各家网关方言）。</p><div class="chips"><span>Apache-2.0</span></div></div>
+      <div class="feature reveal"><span>📊</span><b>models.dev</b><p>模型元数据快照来源：服务商端点、上下文窗口与能力标签的裁剪事实源。</p><div class="chips"><span>MIT · api.json</span></div></div>
+      <div class="feature reveal"><span>🐋</span><b>Deep Code</b><p><code>@vegamo/deepcode</code>（MIT）——DeepOrca 的上游，核心引擎架构的起点，版权声明完整保留于 NOTICE。</p><div class="chips"><span>MIT</span></div></div>
+    </div>
+
+    <p class="section-footnote reveal">感谢所有上述项目的维护者与贡献者。生态内各项目均为独立开源仓库，欢迎 issue 与 PR。</p>
   </div>
 </section>
 
